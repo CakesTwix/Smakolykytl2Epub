@@ -24,4 +24,3 @@ public class Books
 {
     public List<Book> books { get; set; }
 }
-

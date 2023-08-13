@@ -8,9 +8,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="AngleSharp" Version="1.0.4" />
-      <PackageReference Include="EpubSharp.dll" Version="1.1.5" />
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="AngleSharp" Version="1.0.4"/>
+        <PackageReference Include="EpubSharp.dll" Version="1.1.5"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
     </ItemGroup>
 
 </Project>

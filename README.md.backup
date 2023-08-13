@@ -1,11 +1,14 @@
+
+
 <p align="center">
 	<img src="assets/logo.png" width="256px"/><br>
 </p>
 
+
 # Smakolykytl2Epub [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 
 <p align="center">
-<img src="https://img.shields.io/github/languages/code-size/CakesTwix/Smakolykytl2Epub?style=for-the-badge"/>
+<img src="https://img.shields.io/github/languages/code-size/CakesTwix/cloudstream-extensions-uk?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black"/>
 <img src="https://img.shields.io/badge/Rider-000000.svg?style=for-the-badge&logo=Rider&logoColor=white&color=black&labelColor=crimson"/>
 <img src="https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white"/>
@@ -25,7 +28,6 @@
 # Завантажити перший том
 ./Smakolykytl2Epub 2 1
 ```
-
 ```
 ┌─[cakestwix@arch] - [...] - [Sun Aug 13, 14:11]
 └─[$]> ./Smakolykytl2Epub 2 1
@@ -42,9 +44,13 @@ Solo Leveling / Only I Level Up / 나 혼자만 레벨업НАЙСЛАБШИЙ М
 ...
 ```
 
+
+
+
 ## Authors
 
 - [@CakesTwix](https://www.github.com/CakesTwix)
+
 
 ## License
 
