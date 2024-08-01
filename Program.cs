@@ -1,10 +1,13 @@
 ﻿using EpubSharp;
+using Smakolykytl2Epub.Models;
 using Smakolykytl2Epub.Utils;
 
 var client = new HttpClient();
 
+int titleId = int.Parse(args[0]);
+int chapsterId = int.Parse(args[1]) - 1;
 
-var projectTitle = await Ranobe.GetById(int.Parse(args[0]));
+var projectTitle = await Ranobe.GetById(titleId);
 if (projectTitle != null)
 {
     // Print
@@ -25,16 +28,22 @@ if (projectTitle != null)
         writer.SetCover(imageBytes, ImageFormat.Png);
     }
 
-    var books = (await Ranobe.GetChaptersById(int.Parse(args[0])))?.books[int.Parse(args[1]) - 1];
-    if (books != null)
-        foreach (var item in books.chapters)
+    Books? books = await Ranobe.GetChaptersById(titleId);
+    Book? book =  books.books[chapsterId];
+
+    if (book != null)
+    {
+        foreach (var item in book.chapters)
         {
-            Console.WriteLine(item.title);
+            Console.WriteLine("Завантаження розділу: {0}", item.title);
             var content = (await Ranobe.GetChapterById(item.id))!.chapter.content;
             writer.AddChapter(item.title, HtmlConverter.ConvertJsonToHtml(content));
             Thread.Sleep(1000);
         }
 
-    // Done
-    writer.Write("new.epub");
+        // Done
+        var fileName = string.Format("{0} - {1}.epub", project.title, book.title);
+        writer.Write(fileName);
+        Console.WriteLine("Файл збережено як: {0}", fileName);
+    }
 }

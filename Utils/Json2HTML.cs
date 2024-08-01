@@ -18,7 +18,7 @@ public class Mark
 public class TextJson
 {
     public string type { get; set; }
-    public List<Content> content { get; set; }
+    public List<Content?> content { get; set; }
 }
 
 public class HtmlConverter
@@ -40,12 +40,22 @@ public class HtmlConverter
         else if (token is JObject)
         {
             var text = JsonConvert.DeserializeObject<TextJson>(token.ToString());
-            foreach (var str in text?.content!)
+            for (int i = 0; i < text?.content?.Count; i++)
             {
-                if (str.type == "hardBreak") html += "<br>";
-                html += str.text;
+                Content str = text.content[i];
+                if (str != null)
+                {
+                    html += str.text;
+                }
+                if (str.type == "hardBreak")
+                {
+                    html += "<br>";
+                }
+                if (str.type == "paragraph")
+                {
+                    html += "<p>";
+                }
             }
-
             html += "<br>";
         }
         else
