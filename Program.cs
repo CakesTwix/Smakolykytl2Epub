@@ -57,13 +57,13 @@ static async Task DownloadTitleAsync(int titleID, int chapterID){
             {
                 Console.WriteLine("Завантаження розділу: {0}", item.title);
                 var content = (await Ranobe.GetChapterById(item.id))!.chapter.content;
-                writer.AddChapter(item.title, HtmlConverter.ConvertJsonToHtml(content));
+                
+                writer.AddChapter(item.title, HtmlConverter.ConvertJsonToHtml(content, writer));
                 Thread.Sleep(1000);
             }
 
             // Done
             var fileName = string.Format("{0} - {1}.epub", project.title, book.title);
-            writer.Write(fileName);
             Console.WriteLine("Файл збережено як: {0}", fileName);
         }
     } else {
