@@ -64,6 +64,7 @@ static async Task DownloadTitleAsync(int titleID, int chapterID){
 
             // Done
             var fileName = string.Format("{0} - {1}.epub", project.title, book.title);
+            writer.Write(fileName);
             Console.WriteLine("Файл збережено як: {0}", fileName);
         }
     } else {
